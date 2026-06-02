@@ -5,47 +5,41 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../prisma/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
 
+
+
 model User {
-  id        String      @id @default(cuid())
-  email     String      @unique
+  id        String   @id @default(cuid())
+  email     String   @unique
   password  String
   name      String
-  role      Role        @default(USER)
+  role      Role     @default(USER)
   teamId    String?
-  Team      Team?       @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Team      Team?    @relation(fields: [teamId], references: [id])
 
-  //Timestamps
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-
-  //indexes
   @@index([email])
   @@index([role])
   @@index([teamId])
-
-  //map
   @@map("users")
 }
 
 model Team {
-  id          String      @id @default(cuid())
-  name        String      @unique
+  id          String   @id @default(cuid())
+  name        String   @unique
   description String?
-  code        String      @unique
+  code        String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   members     User[]
 
-  //Timestamps
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-
-  //map
   @@map("teams")
 }
 
