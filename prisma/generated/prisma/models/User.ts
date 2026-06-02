@@ -206,7 +206,7 @@ export type UserWhereInput = {
   teamId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  Team?: Prisma.XOR<Prisma.TeamNullableScalarRelationFilter, Prisma.TeamWhereInput> | null
+  team?: Prisma.XOR<Prisma.TeamNullableScalarRelationFilter, Prisma.TeamWhereInput> | null
 }
 
 export type UserOrderByWithRelationInput = {
@@ -218,7 +218,7 @@ export type UserOrderByWithRelationInput = {
   teamId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  Team?: Prisma.TeamOrderByWithRelationInput
+  team?: Prisma.TeamOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -233,7 +233,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   teamId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  Team?: Prisma.XOR<Prisma.TeamNullableScalarRelationFilter, Prisma.TeamWhereInput> | null
+  team?: Prisma.XOR<Prisma.TeamNullableScalarRelationFilter, Prisma.TeamWhereInput> | null
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -272,7 +272,7 @@ export type UserCreateInput = {
   role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
-  Team?: Prisma.TeamCreateNestedOneWithoutMembersInput
+  team?: Prisma.TeamCreateNestedOneWithoutMembersInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -294,7 +294,7 @@ export type UserUpdateInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Team?: Prisma.TeamUpdateOneWithoutMembersNestedInput
+  team?: Prisma.TeamUpdateOneWithoutMembersNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -552,7 +552,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   teamId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -564,7 +564,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   teamId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -576,7 +576,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   teamId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -592,19 +592,19 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "name" | "role" | "teamId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }
 export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  Team?: boolean | Prisma.User$TeamArgs<ExtArgs>
+  team?: boolean | Prisma.User$teamArgs<ExtArgs>
 }
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    Team: Prisma.$TeamPayload<ExtArgs> | null
+    team: Prisma.$TeamPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1009,7 +1009,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  Team<T extends Prisma.User$TeamArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$TeamArgs<ExtArgs>>): Prisma.Prisma__TeamClient<runtime.Types.Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  team<T extends Prisma.User$teamArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$teamArgs<ExtArgs>>): Prisma.Prisma__TeamClient<runtime.Types.Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1448,9 +1448,9 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.Team
+ * User.team
  */
-export type User$TeamArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$teamArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Team
    */

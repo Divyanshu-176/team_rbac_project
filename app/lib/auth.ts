@@ -6,7 +6,7 @@ import { User,Role } from "../types"
 
 const JWT_SECRET = process.env.JWT_SECRET!
 
-export const hashPassword = async (password:string):Promise<String>=>{
+export const hashPassword = async (password:string):Promise<string>=>{
     return bcrypt.hash(password, 10)
 }
 

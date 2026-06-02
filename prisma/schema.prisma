@@ -23,7 +23,7 @@ model User {
   teamId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Team      Team?    @relation(fields: [teamId], references: [id])
+  team      Team?    @relation(fields: [teamId], references: [id])
 
   @@index([email])
   @@index([role])
