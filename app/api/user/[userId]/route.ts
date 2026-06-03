@@ -34,7 +34,8 @@ export async function GET(req:NextRequest){
             where.teamId = teamId
         }
         if(role){
-            where.role = role
+            //@ts-ignore
+            where.role = role as Role
         }
 
         const users = await prisma.user.findMany({
