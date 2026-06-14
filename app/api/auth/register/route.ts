@@ -1,7 +1,6 @@
 import { generateToken, hashPassword } from "@/app/lib/auth";
 import { prisma } from "@/app/lib/db";
 import { Role } from "@/prisma/generated/prisma/enums";
-import { request } from "http";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest){
